@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "./App.css";
-import { Card } from "./Card";
+import { CardBack } from "./CardBack";
 import { CardFace } from "./CardFace";
 import { Spellbook } from "./Spellbook";
 import { Theme } from "./Theme";
@@ -11,7 +11,7 @@ export default function App() {
     <div className="App">
       {Spellbook.map((spell) => (
         <>
-          <Card
+          <CardBack
             key={spell.name}
             spellSchool={spell.school}
             spellName={spell.name}
@@ -26,7 +26,7 @@ export default function App() {
             theme={Theme.light}
           >
             {spell.description}
-          </Card>
+          </CardBack>
           <CardFace
             key={`face_${spell.name}`}
             spellSchool={spell.school}
