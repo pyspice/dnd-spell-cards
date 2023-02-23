@@ -1,0 +1,141 @@
+@use 'Variables' as *;
+
+.dark-theme {
+  .sp-card-content  {
+    background-color: $background-dark;
+    color: $text-dark;
+  }
+
+  .abjuration {
+    background-color: $abjuration-dark;
+    .spell-color {
+      color: $abjuration-dark;
+    }
+  };
+
+  .conjuration {
+    background-color: $conjuration-dark;
+    .spell-color {
+      color: $conjuration-dark;
+    }
+  };
+
+  .divination {
+    background-color: $divination-dark;
+    .spell-color {
+      color: $divination-dark;
+    }
+  };
+
+  .enchantment {
+    background-color: $enchantment-dark;
+    .spell-color {
+      color: $enchantment-dark;
+    }
+  };
+
+  .evocation {
+    background-color: $evocation-dark;
+    .spell-color {
+      color: $evocation-dark;
+    }
+  };
+
+  .illusion {
+    background-color: $illusion-dark;
+    .spell-color {
+      color: $illusion-dark;
+    }
+  };
+
+  .necromancy {
+    background-color: $necromancy-dark;
+    .spell-color {
+      color: $necromancy-dark;
+    }
+  };
+
+  .transmutation {
+    background-color: $transmutation-dark;
+    .spell-color {
+      color: $transmutation-dark;
+    }
+  };
+
+  .dominance {
+    background-color: $dominance-dark;
+    .spell-color {
+      color: $dominance-dark;
+    }
+  };
+}
+
+.light-theme {
+  .sp-card-content  {
+    background-color: $background-light;
+    color: $text-light;
+  }
+
+  .abjuration {
+    background-color: $abjuration-light;
+    .spell-color {
+      color: $abjuration-light;
+    }
+  };
+
+  .conjuration {
+    background-color: $conjuration-light;
+    .spell-color {
+      color: $conjuration-light;
+    }
+  };
+
+  .divination {
+    background-color: $divination-light;
+    .spell-color {
+      color: $divination-light;
+    }
+  };
+
+  .enchantment {
+    background-color: $enchantment-light;
+    .spell-color {
+      color: $enchantment-light;
+    }
+  };
+
+  .evocation {
+    background-color: $evocation-light;
+    .spell-color {
+      color: $evocation-light;
+    }
+  };
+
+  .illusion {
+    background-color: $illusion-light;
+    .spell-color {
+      color: $illusion-light;
+    }
+  };
+
+  .necromancy {
+    background-color: $necromancy-light;
+    .spell-color {
+      color: $necromancy-light;
+    }
+  };
+
+  .transmutation {
+    background-color: $transmutation-light;
+    .spell-color {
+      color: $transmutation-light;
+    }
+  };
+
+  .dominance {
+    background-color: $dominance-light;
+    .spell-color {
+      color: $dominance-light;
+    }
+  };
+}

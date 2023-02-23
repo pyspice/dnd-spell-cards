@@ -1,14 +1,16 @@
 import * as React from "react";
+import "./Colors.scss";
 
 import "./App.css";
 import { CardBack } from "./CardBack";
 import { CardFace } from "./CardFace";
 import { Spellbook } from "./Spellbook";
+import classNames from "classnames";
 import { Theme } from "./Theme";
 
 export default function App() {
   return (
-    <div className="App">
+    <div className={classNames("App", Theme.dark)}>
       {Spellbook.map((spell) => (
         <>
           <CardBack
@@ -23,14 +25,12 @@ export default function App() {
             duration={spell.duration}
             castingTime={spell.castingTime}
             fontSize={spell.fontSize}
-            theme={Theme.light}
           >
             {spell.description}
           </CardBack>
           <CardFace
             key={`face_${spell.name}`}
             spellSchool={spell.school}
-            theme={Theme.light}
           />
         </>
       ))}
