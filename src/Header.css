@@ -1,0 +1,31 @@
+.sp-header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    padding: 0 8px;
+}
+
+.sp-header-icon {
+}
+
+.sp-header-text-container {
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.sp-header-text {
+    font-size: 24px;
+    font-family: Century Gothic;
+    font-weight: bold;
+}
+
+.sp-header-postfix {
+    margin: 0 8px;
+}

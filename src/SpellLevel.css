@@ -1,0 +1,20 @@
+.sp-spell-level {
+    width: 32px;
+    height: 32px;
+    position: relative;
+
+    font-size: 24px;
+    font-family: Century Gothic;
+}
+
+.sp-spell-level:before,
+.sp-spell-level::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    outline: currentColor;
+    border-radius: 50%;
+}
