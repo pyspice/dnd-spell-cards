@@ -17,8 +17,10 @@ export function CardFace({
   spellSchool,
 }: CardFaceProps) {
   return (
-    <Card spellSchool={spellSchool}>
-      <div className={classNames("sp-card-face", className, "spell-color")}>
+    <Card spellSchool={spellSchool}
+          className={className}
+    >
+      <div className={classNames("sp-card-face", "spell-color")}>
         <Icon
           className="sp-card-face-icon"
           icon={spellSchool}
