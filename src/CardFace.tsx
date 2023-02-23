@@ -8,6 +8,7 @@ import { SpellSchool } from "./SpellSchool";
 import { DefaultProps } from "./DefaultProps";
 import { Theme } from "./Theme";
 import { Localization } from "./Localization";
+import { Card } from "./Card";
 
 export type CardFaceProps = DefaultProps & {
   theme: Theme;
@@ -20,14 +21,8 @@ export function CardFace({
   theme = Theme.dark,
 }: CardFaceProps) {
   return (
-    <div
-      className={classNames("sp-card-face", className)}
-      style={{ backgroundColor: Colors[theme][spellSchool] }}
-    >
-      <div
-        className="sp-card-face-content"
-        style={{ backgroundColor: Colors[theme].bg }}
-      >
+    <Card theme={theme} spellSchool={spellSchool}>
+      <div className={classNames("sp-card-face", className)}>
         <Icon
           className="sp-card-face-icon"
           icon={spellSchool}
@@ -42,6 +37,6 @@ export function CardFace({
           {Localization[spellSchool]}
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

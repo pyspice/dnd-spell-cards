@@ -9,6 +9,7 @@ import { Icon } from "./Icon";
 import { DefaultProps } from "./DefaultProps";
 import { SpellSchool } from "./SpellSchool";
 import { Theme } from "./Theme";
+import { Card } from "./Card";
 
 export type CardBackProps = DefaultProps & {
   theme: Theme;
@@ -42,14 +43,8 @@ export function CardBack({
   theme = Theme.dark,
 }: CardBackProps): JSX.Element {
   return (
-    <div
-      className={classNames("sp-card-back", className)}
-      style={{ backgroundColor: Colors[theme][spellSchool] }}
-    >
-      <div
-        className="sp-card-back-content"
-        style={{ backgroundColor: Colors[theme].bg }}
-      >
+    <Card theme={theme} spellSchool={spellSchool}>
+      <div className={classNames("sp-card-back", className)}>
         <Header
           className="sp-card-back-header"
           spellSchool={spellSchool}
@@ -154,6 +149,6 @@ export function CardBack({
           )}
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

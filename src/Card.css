@@ -1,0 +1,22 @@
+.sp-card {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100mm;
+    height: 140mm;
+    padding: 2mm;
+
+    background-color: rgb(38, 42, 54);
+    border-radius: 5mm;
+}
+
+.sp-card-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    padding: 8px;
+
+    border-radius: 3mm; 
+}
