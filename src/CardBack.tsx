@@ -39,8 +39,10 @@ export function CardBack({
   fontSize = 13,
 }: CardBackProps): JSX.Element {
   return (
-    <Card spellSchool={spellSchool}>
-      <div className={classNames("sp-card-back", className)}>
+    <Card spellSchool={spellSchool}
+          className={className}
+    >
+      <div className={classNames("sp-card-back")}>
         <Header
           className="sp-card-back-header"
           spellSchool={spellSchool}
