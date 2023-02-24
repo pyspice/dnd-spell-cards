@@ -7,10 +7,10 @@ d_N_regex = r'([1-9](\d)*к(4|6|8|10|12|20|100)((\s)*[-×\+](\s)*[1-9](\d)*(к(4
 d_N_pattern = re.compile(d_N_regex)
 
 strength_regex = r'Сил(а|ы|е|у|ой)'
-dexterity_regex = r'Ловкост(ь|и|ью)'
-constitution_regex = r'Телосложени(е|я|ю|ем|и)'
-intelligence_regex = r'Интеллект(|а|у|ом|е)'
-wisdom_regex = r'Мудрост(ь|и|ью)'
+dexterity_regex = r'Ловкост(ью|и|ь)'
+constitution_regex = r'Телосложени(ем|я|ю|е|и)'
+intelligence_regex = r'Интеллек(та|ту|том|те|т)'
+wisdom_regex = r'Мудрост(ью|и|ь)'
 charisma_regex = r'Харизм(а|ы|е|у|ой)'
 ability_regex = r'(' + r')|('.join([strength_regex, dexterity_regex,
                                    constitution_regex, intelligence_regex, wisdom_regex, charisma_regex]) + r')'
