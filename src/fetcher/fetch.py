@@ -20,36 +20,44 @@ def parse_spell_description(soup):
     spell_description += f'''name: "{name}",
         '''
 
+    print(name)
+
     # Разбор атрибутов заклинания
     # Атрибуты отображаются с помощью маркированного списка ul, каждый атрибут - отдельный li
     #
     # Атрибуты располагаются в следующем порядке:
-    # 0) Уровень и школа
+    # 0) Уровень, школа и ритуал
     # 1) Время накладывания
     # 2) Дистанция
     # 3) Компоненты
     # 4) Длительность
-    # 5) Классы
-    # 6?) (опционально) Архетипы
-    # 6-7) Источник
-    # 7-8) Текст
+    # *? (опционально) Классы
+    # *? (опционально) Архетипы
+    # -2) Источник
+    # -1) Текст
     li_attributes = card_body.ul.contents
 
-    # 0) Уровень и школа
+    # 0) Уровень, школа и ритуал
     school_dict = {'ограждение': 'abjuration', 'вызов': 'conjuration', 'прорицание': 'divination', 'очарование': 'enchantment', 'воплощение': 'evocation',
                    'иллюзия': 'illusion', 'некромантия': 'necromancy', 'преобразование': 'transmutation', 'господство': 'dominance'}
 
     level_school_text = li_attributes[0].text
-    level_text, school_text = level_school_text.split(", ")
-    if level_text == "Заговор":
+    if level_school_text.startswith("Заговор"):
         level = 0
+        school_text = level_school_text.split("Заговор,")[1].strip()
     else:
-        level = int(level_text.split()[0])
+        level = int(level_school_text[0])
+        school_text = level_school_text.split("уровень,")[1].strip()
     spell_description += f'''level: {level},
         '''
 
-    school = school_dict[school_text.strip()]
+    # school_text.split()[0] для обработки уточнений, например, "прорицание (ритуал, дюнамантия)"
+    school = school_dict[school_text.split()[0].strip()]
     spell_description += f'''school: SpellSchool.{school},
+        '''
+
+    if "ритуал" in school_text:
+        spell_description += f'''ritual: true,
         '''
 
     # 1) Время накладывания
@@ -64,15 +72,18 @@ def parse_spell_description(soup):
 
     # 3) Компоненты
     components_text = li_attributes[3].contents[1].strip()
-    components = components_text.split(", ")
-    has_verbal_component = "В" in components
-    has_somatic_component = "С" in components
-    has_material_component = len(components) == 3
+    has_material_component = "(" in components_text
     if has_material_component:
-        material_component = components[-1].split("(")[1].split(")")[0].strip()
+        spl = components_text.split("(")
+        components = list(map(str.strip, spl[0].split(",")))
+        material_component = spl[1].split(")")[0].strip()
         if material_component.split()[0] == "А":
             material_component = material_component[2:] + \
                 " (авторские отчисления)"
+    else:
+        components = components_text.split(", ")
+    has_verbal_component = "В" in components
+    has_somatic_component = "С" in components
 
     if has_verbal_component:
         spell_description += f'''hasVerbalComponent: true,
@@ -102,14 +113,21 @@ def parse_spell_description(soup):
         spell_description += f'''duration: "{duration}",
         '''
 
-    # 7-8) Текст
+    # -1) Текст
     text_ps = li_attributes[-1].div.find_all("p", recursive=False)
     text = '''(
         <>
             '''
     for p in text_ps:
-        text += str(p)
-        text += '\n'
+        if len(p.text) == 0:
+            continue
+        text += "<p>"
+        for node in p.contents:
+            if node.name == "span":
+                text += node.text
+            else:
+                text += str(node)
+        text += '</p>\n'
     text += '''      </>
         )'''
 
