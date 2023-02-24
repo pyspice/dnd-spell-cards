@@ -137,7 +137,7 @@ def parse_spell_description(soup):
             continue
         text += "<p>"
         for node in p.contents:
-            if node.name == "span":
+            if node.name == "span" or node.name == "a":
                 text += node.text
             else:
                 text += str(node)
