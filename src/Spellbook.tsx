@@ -5,6 +5,7 @@ export type SpellDescription = {
   school: SpellSchool;
   name: string;
   level: number;
+  ritual?: boolean;
   hasVerbalComponent?: boolean;
   hasSomaticComponent?: boolean;
   materialComponent?: string;
@@ -39,12 +40,7 @@ export const Spellbook: SpellDescription[] = [
             оговорку, вы можете притвориться, что этого никогда не было, с
             гарантией, что никто не узнает, что это произошло.{" "}
           </em>
-        </p>
-        <p>
-          <em>
-            <br />
-          </em>
-        </p>
+        </p>  
         <p>
           Когда вы накладываете это заклинание, вы умело изменяете воспоминания
           слушателей в вашем непосредственном окружении так, что каждое существо
