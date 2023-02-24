@@ -13,8 +13,6 @@ export type SpellDescription = {
   duration: React.ReactNode;
   castingTime: string;
   description: React.ReactNode;
-
-  fontSize?: number;
 };
 
 export const MasterSpellbook: SpellDescription[] = [

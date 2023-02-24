@@ -11,6 +11,9 @@ import { SpellSchool } from "./SpellSchool";
 import { Theme } from "./Theme";
 import { Card } from "./Card";
 
+const BASE_FONT_SIZE = 13;
+const BASE_CARD_DESCRIPTION_OFFSET_HEIGHT = 378;
+
 export type CardBackProps = DefaultProps & {
   theme: Theme;
   spellSchool: SpellSchool;
@@ -22,7 +25,6 @@ export type CardBackProps = DefaultProps & {
   hasVerbalComponent: boolean;
   hasSomaticComponent: boolean;
   materialComponent: string;
-  fontSize: number;
 };
 
 export function CardBack({
@@ -39,9 +41,17 @@ export function CardBack({
   hasSomaticComponent,
   materialComponent,
 
-  fontSize = 13,
   theme = Theme.dark,
 }: CardBackProps): JSX.Element {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [fontSize, setFontSize] = React.useState(BASE_FONT_SIZE);
+
+  React.useEffect(() => {
+    if (ref.current.offsetHeight > BASE_CARD_DESCRIPTION_OFFSET_HEIGHT) {
+      setFontSize(fontSize - 1);
+    }
+  }, [ref, fontSize]);
+
   return (
     <Card theme={theme} spellSchool={spellSchool}>
       <div className={classNames("sp-card-back", className)}>
@@ -100,6 +110,7 @@ export function CardBack({
         </div>
         <Separator />
         <div
+          ref={ref}
           className="sp-card-back-description"
           style={{ fontSize, color: Colors[theme].text }}
         >
