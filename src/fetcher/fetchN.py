@@ -5,23 +5,11 @@ import fetch
 
 
 def fetch_spell_urls(N):
-    if N is None:
-        N = -1
+    if N is None or N < 0 or N > 519:
+        N = 519
 
-    r = urllib.request.urlopen("https://dnd.su/spells/")
-    html = r.read()
-    soup = BeautifulSoup(html, "html.parser")
-
-    container = soup.find("div", {"class": "grid-4_lg-3_md-2_xs-1 list"})
-    spells = container.find_all("div", {"class": "col list-item__spell for_filter"})
-    urls = []
-    for spell in spells:
-        if N == 0:
-            break
-
-        spellUrl = "https://dnd.su" + spell.a["href"]
-        urls.append(spellUrl)
-        N -= 1
+    # dnd.su позволяет грузить страницу заклинания по номеру (от 1 до 519)
+    urls = list(map(lambda i: f'https://dnd.su/spells/{i}', range(1, N + 1)))
 
     return urls
 
