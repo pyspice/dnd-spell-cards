@@ -38,6 +38,10 @@
     flex-flow: column nowrap;
 }
 
+.sp-card-back-attribute-container--max-width {
+    max-width: 160px;
+}
+
 .sp-card-back-attribute-title {
     font-size: 14px;
     font-family: Century Gothic;
