@@ -1,0 +1,1 @@
+python fetch.py -f="test.txt" https://dnd.su/spells/205-fireball/ https://dnd.su/spells/464-chaos_bolt/ https://dnd.su/spells/408-whirlwind/
