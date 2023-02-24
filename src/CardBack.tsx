@@ -42,8 +42,6 @@ export function CardBack({
   fontSize = 13,
   theme = Theme.dark,
 }: CardBackProps): JSX.Element {
-  const attributeContainerCls = "sp-card-back-attribute-container";
-
   return (
     <Card theme={theme} spellSchool={spellSchool}>
       <div className={classNames("sp-card-back", className)}>
@@ -85,7 +83,7 @@ export function CardBack({
               {duration}
             </span>
           </div>
-          <div className={classNames(attributeContainerCls, `${attributeContainerCls}--max-width`)}>
+          <div className="sp-card-back-attribute-container">
             <span
               className="sp-card-back-attribute-title"
               style={{ color: Colors[theme].text }}
