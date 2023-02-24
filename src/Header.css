@@ -28,4 +28,6 @@
 
 .sp-header-postfix {
     margin: 0 8px;
+    position: relative;
+    top: 1;
 }
