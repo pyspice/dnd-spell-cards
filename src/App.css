@@ -1,13 +1,14 @@
 .App {
+  position: absolute;
+  top: 0;
+
   width: 210mm;
   height: 297mm;
+
+  row-gap: 4mm;
+  column-gap: 2mm;
 
   text-align: center;
   display: flex;
   flex-flow: row wrap;
-}
-
-.App > * {
-  margin-bottom: 3px;
-  margin-right: 3px;
 }

@@ -4,15 +4,12 @@ import * as React from "react";
 import { Header } from "./Header";
 import classNames from "classnames";
 import { Separator } from "./Separator";
-import { Colors } from "./Colors";
 import { Icon } from "./Icon";
 import { DefaultProps } from "./DefaultProps";
 import { SpellSchool } from "./SpellSchool";
-import { Theme } from "./Theme";
 import { Card } from "./Card";
 
 export type CardBackProps = DefaultProps & {
-  theme: Theme;
   spellSchool: SpellSchool;
   spellName: string;
   spellLevel: number;
@@ -40,77 +37,57 @@ export function CardBack({
   materialComponent,
 
   fontSize = 13,
-  theme = Theme.dark,
 }: CardBackProps): JSX.Element {
   return (
-    <Card theme={theme} spellSchool={spellSchool}>
-      <div className={classNames("sp-card-back", className)}>
+    <Card spellSchool={spellSchool}
+          className={className}
+    >
+      <div className={classNames("sp-card-back")}>
         <Header
           className="sp-card-back-header"
           spellSchool={spellSchool}
           spellLevel={spellLevel}
-          theme={theme}
         >
           {spellName}
         </Header>
         <Separator className="sp-card-back-header-separator" />
         <div className="sp-card-back-attributes">
           <div className="sp-card-back-attribute-container">
-            <span
-              className="sp-card-back-attribute-title"
-              style={{ color: Colors[theme].text }}
-            >
+            <span className="sp-card-back-attribute-title">
               Дистанция
             </span>
-            <span
-              className="sp-card-back-attribute-value"
-              style={{ color: Colors[theme].text }}
-            >
+            <span className="sp-card-back-attribute-value">
               {range}
             </span>
           </div>
           <div className="sp-card-back-attribute-container">
-            <span
-              className="sp-card-back-attribute-title"
-              style={{ color: Colors[theme].text }}
-            >
+            <span className="sp-card-back-attribute-title">
               Длительность
             </span>
-            <span
-              className="sp-card-back-attribute-value"
-              style={{ color: Colors[theme].text }}
-            >
+            <span className="sp-card-back-attribute-value">
               {duration}
             </span>
           </div>
           <div className="sp-card-back-attribute-container">
-            <span
-              className="sp-card-back-attribute-title"
-              style={{ color: Colors[theme].text }}
-            >
+            <span className="sp-card-back-attribute-title">
               Время накладывания
             </span>
-            <span
-              className="sp-card-back-attribute-value"
-              style={{ color: Colors[theme].text }}
-            >
+            <span className="sp-card-back-attribute-value">
               {castingTime}
             </span>
           </div>
         </div>
         <Separator />
-        <div
-          className="sp-card-back-description"
-          style={{ fontSize, color: Colors[theme].text }}
+        <div className="sp-card-back-description"
+             style={{ fontSize }}
         >
           {children}
         </div>
-        <div className="sp-card-back-footer">
+        <div className="sp-card-back-footer spell-color">
           {hasVerbalComponent && (
             <Icon
               className="sp-card-back-footer-icon"
               icon={"verbal"}
-              color={Colors[theme][spellSchool]}
               width={24}
               height={24}
             />
@@ -119,7 +96,6 @@ export function CardBack({
             <Icon
               className="sp-card-back-footer-icon"
               icon={"somatic"}
-              color={Colors[theme][spellSchool]}
               width={24}
               height={24}
             />
@@ -129,20 +105,13 @@ export function CardBack({
               <Icon
                 className="sp-card-back-footer-icon"
                 icon={"material"}
-                color={Colors[theme][spellSchool]}
                 width={24}
                 height={24}
               />
-              <span
-                className="sp-card-back-footer-text-delimeter"
-                style={{ color: Colors[theme][spellSchool] }}
-              >
+              <span className="sp-card-back-footer-text-delimeter">
                 -
               </span>
-              <span
-                className="sp-card-back-footer-text"
-                style={{ color: Colors[theme][spellSchool] }}
-              >
+              <span className="sp-card-back-footer-text">
                 {materialComponent}
               </span>
             </>

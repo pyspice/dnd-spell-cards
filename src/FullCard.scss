@@ -1,0 +1,12 @@
+.sp-full-card {
+    height: 144mm;
+
+    &:nth-child(4n) {
+        margin-bottom: 307mm;
+    }
+
+    .sp-full-card-face {
+        position: relative;
+        top: 153.1mm;
+    }
+}
