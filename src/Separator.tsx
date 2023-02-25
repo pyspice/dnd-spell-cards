@@ -6,6 +6,8 @@ import { DefaultProps } from "./DefaultProps";
 
 export type SeparatorProps = DefaultProps & {};
 
-export function Separator({ className }: SeparatorProps) {
-  return <div className={classNames("sp-separator", className)} />;
-}
+export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
+  ({ className }: SeparatorProps, ref) => {
+    return <div ref={ref} className={classNames("sp-separator", className)} />;
+  }
+);
