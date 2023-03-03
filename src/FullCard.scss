@@ -1,12 +1,18 @@
 .sp-full-card {
+    display: flex;
+    align-items: center;
     height: 144mm;
 
-    &:nth-child(4n) {
-        margin-bottom: 307mm;
+    &:nth-child(2n - 1) {
+        margin: 3mm 0 1.575mm;
     }
 
-    .sp-full-card-face {
-        position: relative;
-        top: 153.1mm;
+    &:nth-child(2n) {
+        margin: 1.575mm 0 3mm;
+    }
+
+    .sp-vertical-separator {
+        width: 1mm;
+        height: 144mm;
     }
 }

@@ -33,6 +33,7 @@ export function FullCard({
       >
         {spell.description}
       </CardBack>
+      <div className={"sp-vertical-separator"}/>
       <CardFace
         key={`face_${spell.name}`}
         spellSchool={spell.school}

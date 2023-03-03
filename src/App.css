@@ -1,12 +1,8 @@
 .App {
   position: absolute;
-  top: 0;
 
   width: 210mm;
   height: 297mm;
-
-  row-gap: 4mm;
-  column-gap: 2mm;
 
   text-align: center;
   display: flex;
