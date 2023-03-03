@@ -22,7 +22,6 @@ export default function App() {
             range={spell.range}
             duration={spell.duration}
             castingTime={spell.castingTime}
-            fontSize={spell.fontSize}
             theme={Theme.light}
           >
             {spell.description}
